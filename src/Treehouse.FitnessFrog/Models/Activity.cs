@@ -6,6 +6,21 @@
     public class Activity
     {
         /// <summary>
+        /// Constructors an activity for the provided activity type and name.
+        /// </summary>
+        /// <param name="activityType">The activity type for the activity.</param>
+        /// <param name="name">The name for the activity.</param>
+        public Activity(ActivityType activityType, string name = null)
+        {
+            Id = (int)activityType;
+
+            // If we don't have a name argument, 
+            // then use the string representation of the activity type for the name.
+            Name = name ?? activityType.ToString();
+        }
+
+
+        /// <summary>
         /// The list of activity types.
         /// </summary>
         public enum ActivityType
@@ -20,20 +35,6 @@
             Swimming = 8,
             Walking = 9,
             WeightLifting = 10
-        }
-
-        /// <summary>
-        /// Constructors an activity for the provided activity type and name.
-        /// </summary>
-        /// <param name="activityType">The activity type for the activity.</param>
-        /// <param name="name">The name for the activity.</param>
-        public Activity(ActivityType activityType, string name = null)
-        {
-            Id = (int)activityType;
-
-            // If we don't have a name argument, 
-            // then use the string representation of the activity type for the name.
-            Name = name ?? activityType.ToString();
         }
 
         /// <summary>
